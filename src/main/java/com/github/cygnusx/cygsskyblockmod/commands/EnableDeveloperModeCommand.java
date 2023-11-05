@@ -1,6 +1,6 @@
 package com.github.cygnusx.cygsskyblockmod.commands;
 
-import com.github.cygnusx.cygsskyblockmod.utils.HandleAPIRequest;
+import com.github.cygnusx.cygsskyblockmod.CygsSkyblockMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -8,21 +8,17 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
-public class SkyblockCommand extends CommandBase {
+public class EnableDeveloperModeCommand extends CommandBase {
     public final int argCount = 0;
-    public final String[] technobladeQuote =
-            {"Skyblock teaches us that no matter how ridiculous the odds may seem,",
-            "within us resides the power to overcome these challenges and achieve something beautiful.",
-            "That one day, we'll look back at where we started and be amazed by how far we've come.",
-            " - " + EnumChatFormatting.LIGHT_PURPLE + "Technoblade"};
+
     @Override
     public String getCommandName() {
-        return "skyblock";
+        return "devmode";
     }
 
     @Override
     public String getCommandUsage(ICommandSender sender) {
-        return "Rest in Peace";
+        return "enables developer mode, use at own risk.";
     }
 
     @Override
@@ -36,8 +32,12 @@ public class SkyblockCommand extends CommandBase {
             sender.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"This command expects " + this.argCount + " argument"));
             return;
         }
-        for (int i = 0; i < technobladeQuote.length; i++) {
-            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(technobladeQuote[i]));
+        if (CygsSkyblockMod.RISK) {
+            CygsSkyblockMod.RISK = false;
+            Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.GOLD+"Developer mode disabled"));
+            return;
         }
+        CygsSkyblockMod.RISK = true;
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"Developer mode enabled"));
     }
 }

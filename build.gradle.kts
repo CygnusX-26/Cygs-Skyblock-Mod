@@ -61,8 +61,8 @@ sourceSets.main {
 repositories {
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
-    // If you don't want to log in with your real minecraft account, remove this line
-//    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+//     If you don't want to log in with your real minecraft account, remove this line
+    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
 }
 
 
@@ -81,8 +81,8 @@ dependencies {
 //    }
 //    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")
 
-    // If you don't want to log in with your real minecraft account, remove this line
-//    runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.2")
+//     If you don't want to log in with your real minecraft account, remove this line
+    runtimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.2")
 
 }
 

@@ -37,6 +37,6 @@ public class InventoryViewerGUI extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        this.fontRendererObj.drawString(inventory.getName(), (176) / 2 - 28, 6, 4210752);
+        this.fontRendererObj.drawString(inventory.getName(), (176) / 2 - 45, 6, 4210752);
     }
 }
